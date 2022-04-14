@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" id="combobox-label-id-6">Account Search</label>
+        <div class="slds-form-element__control">
+            <div if:false={showPill} class="slds-combobox_container">
+                <lightning-input  value={searchString}  onchange={searchRecords} onfocusin={searchRecords} onfocusout={clearData} class="inputBox" type="search"
+                    autocomplete="off" variant="label-hidden" placeholder="Search Accounts"></lightning-input>
+                <div if:true={showSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </div>
+            <div if:true={showPill} class="pillContainer">
+                <lightning-pill class="fullWidth" label={selectedRecord.Name} name={selectedRecord.Id} onremove={removeItem}>
+                    <lightning-icon icon-name="standard:account" alternative-text="icon" size="x-small"></lightning-icon>
+                </lightning-pill>
+            </div>
+        </div>
+        <div if:true={showData} class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+            <ul class="slds-listbox slds-listbox_vertical recordListBox">
+                <template for:each={records} for:item="rec">
+                    <li key={rec.Id} data-key={rec.Id} class="slds-listbox__item eachItem" onmousedown={selectElement}>
+                        <div class="slds-media slds-listbox__option_entity">
+                            <lightning-icon icon-name="standard:account" alternative-text="icon" size="small">
+                            </lightning-icon>
+                            <span class="verticalAlign slds-truncate padd">{rec.Name}</span>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+</template>

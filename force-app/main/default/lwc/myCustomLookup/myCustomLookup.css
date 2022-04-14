@@ -1,0 +1,39 @@
+.verticalAlign {
+    cursor: pointer;
+    margin: 0px 0px 0px 0px !important;
+}
+.padd{
+    padding:0.5rem;
+}
+
+.eachItem:hover {
+    background-color: #EEE;
+    cursor: pointer;
+}
+
+.slds-listbox__option_entity {
+    padding: 0.5rem 0.5rem !important;
+}
+
+
+.pillContainer {
+    border: 1px solid #d9dbdd;
+    border-radius: 4px;
+    line-height: 0.5rem;
+    padding: 2px;
+}
+
+/* For Scrolling */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    display: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+}
